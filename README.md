@@ -1,2 +1,3 @@
-# css-tic-tac-toe
-Tic Tac Toe created using CSS only
+# CSS Tic-tac-toe
+
+Simple Tic-tac-toe game created using CSS only.

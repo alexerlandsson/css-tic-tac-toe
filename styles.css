@@ -1,0 +1,243 @@
+:root {
+  --color-bg: #000;
+  --color-bg-hover: #141414;
+  --color-fg: #fff;
+  --color-player-1: #0066FF;
+  --color-player-2: #e41f1f;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100dvh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: monospace;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 400px;
+  margin: 1.5rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--color-fg);
+}
+
+/* Cell */
+
+.cell {
+  display: none;
+  position: relative;
+  border: 1px solid var(--color-fg);
+  cursor: pointer;
+}
+
+.cell:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.cell:hover::before {
+  display: block;
+}
+
+.cell::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  font-size: min(15vw, 4.5rem);
+  font-family: 'Material Symbols Outlined';
+}
+
+.cell--1,
+.cell--2,
+.cell--3 {
+  grid-row: 1;
+}
+
+.cell--4,
+.cell--5,
+.cell--6 {
+  grid-row: 2;
+}
+
+.cell--7,
+.cell--8,
+.cell--9 {
+  grid-row: 3;
+}
+
+.cell--1,
+.cell--4,
+.cell--7 {
+  grid-column: 1;
+}
+
+.cell--2,
+.cell--5,
+.cell--8 {
+  grid-column: 2;
+}
+
+.cell--3,
+.cell--6,
+.cell--9 {
+  grid-column: 3;
+}
+
+/* Inputs */
+
+input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Disable a cell from being selected again */
+input[type="radio"]:checked + .cell {
+  z-index: 10;
+  cursor: not-allowed;
+}
+
+/* Display cell marker when selected */
+input[type="radio"]:checked + .cell::before {
+  display: block;
+}
+
+/* Set marker for cross (x) */
+.p-1 + .cell::before {
+  content: "\e5cd";
+}
+
+/* Set marker for circle (o) */
+.p-2 + .cell::before {
+  content: "\ef4a";
+}
+
+/* Set background color of selected cell (x) */
+/*
+.p-1:checked + .cell {
+  background-color: var(--color-player-1);
+}
+*/
+
+/* Set background color of selected cell (o) */
+/*
+.p-2:checked + .cell {
+  background-color: var(--color-player-2);
+}
+*/
+
+/* End Dialog */
+
+.end {
+  display: none;
+  z-index: 20;
+}
+
+.end::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(3px);
+}
+
+.end__dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 3rem);
+  padding: 1.5rem;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-fg);
+  text-align: center;
+}
+
+.end__restart {
+  display: block;
+  margin-top: 0.75rem;
+  color: currentColor;
+}
+
+/* Display next layer when a cell is selected */
+input[data-layer="1"] + .cell,
+input[data-layer="1"]:checked ~ input[data-layer="2"] + .cell,
+input[data-layer="2"]:checked ~ input[data-layer="3"] + .cell,
+input[data-layer="3"]:checked ~ input[data-layer="4"] + .cell,
+input[data-layer="4"]:checked ~ input[data-layer="5"] + .cell,
+input[data-layer="5"]:checked ~ input[data-layer="6"] + .cell,
+input[data-layer="6"]:checked ~ input[data-layer="7"] + .cell,
+input[data-layer="7"]:checked ~ input[data-layer="8"] + .cell,
+input[data-layer="8"]:checked ~ input[data-layer="9"] + .cell,
+input[data-layer="9"]:checked ~ .end {
+    display: block;
+}
+
+/* Set end message when it is a draq */
+input[data-layer="9"]:checked ~ .end .end__message::before {
+  content: "It's a draw";
+}
+
+/* Display end dialog when someone wins */
+.p-1.c-1:checked ~ .p-1.c-1:checked ~ .p-1.c-1:checked ~ .end,
+.p-1.c-2:checked ~ .p-1.c-2:checked ~ .p-1.c-2:checked ~ .end,
+.p-1.c-3:checked ~ .p-1.c-3:checked ~ .p-1.c-3:checked ~ .end,
+.p-1.r-1:checked ~ .p-1.r-1:checked ~ .p-1.r-1:checked ~ .end,
+.p-1.r-2:checked ~ .p-1.r-2:checked ~ .p-1.r-2:checked ~ .end,
+.p-1.r-3:checked ~ .p-1.r-3:checked ~ .p-1.r-3:checked ~ .end,
+.p-1.d-1:checked ~ .p-1.d-1:checked ~ .p-1.d-1:checked ~ .end,
+.p-1.d-2:checked ~ .p-1.d-2:checked ~ .p-1.d-2:checked ~ .end,
+.p-2.c-1:checked ~ .p-2.c-1:checked ~ .p-2.c-1:checked ~ .end,
+.p-2.c-2:checked ~ .p-2.c-2:checked ~ .p-2.c-2:checked ~ .end,
+.p-2.c-3:checked ~ .p-2.c-3:checked ~ .p-2.c-3:checked ~ .end,
+.p-2.r-1:checked ~ .p-2.r-1:checked ~ .p-2.r-1:checked ~ .end,
+.p-2.r-2:checked ~ .p-2.r-2:checked ~ .p-2.r-2:checked ~ .end,
+.p-2.r-3:checked ~ .p-2.r-3:checked ~ .p-2.r-3:checked ~ .end,
+.p-2.d-1:checked ~ .p-2.d-1:checked ~ .p-2.d-1:checked ~ .end,
+.p-2.d-2:checked ~ .p-2.d-2:checked ~ .p-2.d-2:checked ~ .end {
+  display: block;
+}
+
+/* Set end message when cross (x) wins */
+.p-1.c-1:checked ~ .p-1.c-1:checked ~ .p-1.c-1:checked ~ .end .end__message::before,
+.p-1.c-2:checked ~ .p-1.c-2:checked ~ .p-1.c-2:checked ~ .end .end__message::before,
+.p-1.c-3:checked ~ .p-1.c-3:checked ~ .p-1.c-3:checked ~ .end .end__message::before,
+.p-1.r-1:checked ~ .p-1.r-1:checked ~ .p-1.r-1:checked ~ .end .end__message::before,
+.p-1.r-2:checked ~ .p-1.r-2:checked ~ .p-1.r-2:checked ~ .end .end__message::before,
+.p-1.r-3:checked ~ .p-1.r-3:checked ~ .p-1.r-3:checked ~ .end .end__message::before,
+.p-1.d-1:checked ~ .p-1.d-1:checked ~ .p-1.d-1:checked ~ .end .end__message::before,
+.p-1.d-2:checked ~ .p-1.d-2:checked ~ .p-1.d-2:checked ~ .end .end__message::before {
+  content: "Cross (x) is the winner";
+}
+
+/* Set end message when circle (o) wins */
+.p-2.c-1:checked ~ .p-2.c-1:checked ~ .p-2.c-1:checked ~ .end .end__message::before,
+.p-2.c-2:checked ~ .p-2.c-2:checked ~ .p-2.c-2:checked ~ .end .end__message::before,
+.p-2.c-3:checked ~ .p-2.c-3:checked ~ .p-2.c-3:checked ~ .end .end__message::before,
+.p-2.r-1:checked ~ .p-2.r-1:checked ~ .p-2.r-1:checked ~ .end .end__message::before,
+.p-2.r-2:checked ~ .p-2.r-2:checked ~ .p-2.r-2:checked ~ .end .end__message::before,
+.p-2.r-3:checked ~ .p-2.r-3:checked ~ .p-2.r-3:checked ~ .end .end__message::before,
+.p-2.d-1:checked ~ .p-2.d-1:checked ~ .p-2.d-1:checked ~ .end .end__message::before,
+.p-2.d-2:checked ~ .p-2.d-2:checked ~ .p-2.d-2:checked ~ .end .end__message::before {
+  content: "Circle (o) is the winner";
+}

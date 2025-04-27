@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Tic-Tac-Toe</title>
+
+  <meta charset="UTF-8">
+  <meta name="author" content="Alexander Erlandsson">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,0,0&icon_names=circle,close" />
+</head>
+<body>
+  
+    <div class="game">
+
+      <!-- Layer 1 -->
+      <input type="radio" id="l1-b1" data-layer="1" class="p-1 c-1 r-1 d-1" />
+      <label for="l1-b1" class="cell cell--1"></label>
+      <input type="radio" id="l1-b2" data-layer="1" class="p-1 c-1 r-2" />
+      <label for="l1-b2" class="cell cell--2"></label>
+      <input type="radio" id="l1-b3" data-layer="1" class="p-1 c-1 r-3 d-2" />
+      <label for="l1-b3" class="cell cell--3"></label>
+      <input type="radio" id="l1-b4" data-layer="1" class="p-1 c-2 r-1" />
+      <label for="l1-b4" class="cell cell--4"></label>
+      <input type="radio" id="l1-b5" data-layer="1" class="p-1 c-2 r-2 d-1 d-2" />
+      <label for="l1-b5" class="cell cell--5"></label>
+      <input type="radio" id="l1-b6" data-layer="1" class="p-1 c-2 r-3" />
+      <label for="l1-b6" class="cell cell--6"></label>
+      <input type="radio" id="l1-b7" data-layer="1" class="p-1 c-3 r-1 d-2" />
+      <label for="l1-b7" class="cell cell--7"></label>
+      <input type="radio" id="l1-b8" data-layer="1" class="p-1 c-3 r-2" />
+      <label for="l1-b8" class="cell cell--8"></label>
+      <input type="radio" id="l1-b9" data-layer="1" class="p-1 c-3 r-3 d-1" />
+      <label for="l1-b9" class="cell cell--9"></label>
+
+      <!-- Layer 2 -->
+      <input type="radio" id="l2-b1" data-layer="2" class="p-2 c-1 r-1 d-1" />
+      <label for="l2-b1" class="cell cell--1"></label>
+      <input type="radio" id="l2-b2" data-layer="2" class="p-2 c-1 r-2" />
+      <label for="l2-b2" class="cell cell--2"></label>
+      <input type="radio" id="l2-b3" data-layer="2" class="p-2 c-1 r-3 d-2" />
+      <label for="l2-b3" class="cell cell--3"></label>
+      <input type="radio" id="l2-b4" data-layer="2" class="p-2 c-2 r-1" />
+      <label for="l2-b4" class="cell cell--4"></label>
+      <input type="radio" id="l2-b5" data-layer="2" class="p-2 c-2 r-2 d-1 d-2" />
+      <label for="l2-b5" class="cell cell--5"></label>
+      <input type="radio" id="l2-b6" data-layer="2" class="p-2 c-2 r-3" />
+      <label for="l2-b6" class="cell cell--6"></label>
+      <input type="radio" id="l2-b7" data-layer="2" class="p-2 c-3 r-1 d-2" />
+      <label for="l2-b7" class="cell cell--7"></label>
+      <input type="radio" id="l2-b8" data-layer="2" class="p-2 c-3 r-2" />
+      <label for="l2-b8" class="cell cell--8"></label>
+      <input type="radio" id="l2-b9" data-layer="2" class="p-2 c-3 r-3 d-1" />
+      <label for="l2-b9" class="cell cell--9"></label>
+
+      <!-- Layer 3 -->
+      <input type="radio" id="l3-b1" data-layer="3" class="p-1 c-1 r-1 d-1" />
+      <label for="l3-b1" class="cell cell--1"></label>
+      <input type="radio" id="l3-b2" data-layer="3" class="p-1 c-1 r-2" />
+      <label for="l3-b2" class="cell cell--2"></label>
+      <input type="radio" id="l3-b3" data-layer="3" class="p-1 c-1 r-3 d-2" />
+      <label for="l3-b3" class="cell cell--3"></label>
+      <input type="radio" id="l3-b4" data-layer="3" class="p-1 c-2 r-1" />
+      <label for="l3-b4" class="cell cell--4"></label>
+      <input type="radio" id="l3-b5" data-layer="3" class="p-1 c-2 r-2 d-1 d-2" />
+      <label for="l3-b5" class="cell cell--5"></label>
+      <input type="radio" id="l3-b6" data-layer="3" class="p-1 c-2 r-3" />
+      <label for="l3-b6" class="cell cell--6"></label>
+      <input type="radio" id="l3-b7" data-layer="3" class="p-1 c-3 r-1 d-2" />
+      <label for="l3-b7" class="cell cell--7"></label>
+      <input type="radio" id="l3-b8" data-layer="3" class="p-1 c-3 r-2" />
+      <label for="l3-b8" class="cell cell--8"></label>
+      <input type="radio" id="l3-b9" data-layer="3" class="p-1 c-3 r-3 d-1" />
+      <label for="l3-b9" class="cell cell--9"></label>
+
+      <!-- Layer 4 -->
+      <input type="radio" id="l4-b1" data-layer="4" class="p-2 c-1 r-1 d-1" />
+      <label for="l4-b1" class="cell cell--1"></label>
+      <input type="radio" id="l4-b2" data-layer="4" class="p-2 c-1 r-2" />
+      <label for="l4-b2" class="cell cell--2"></label>
+      <input type="radio" id="l4-b3" data-layer="4" class="p-2 c-1 r-3 d-2" />
+      <label for="l4-b3" class="cell cell--3"></label>
+      <input type="radio" id="l4-b4" data-layer="4" class="p-2 c-2 r-1" />
+      <label for="l4-b4" class="cell cell--4"></label>
+      <input type="radio" id="l4-b5" data-layer="4" class="p-2 c-2 r-2 d-1 d-2" />
+      <label for="l4-b5" class="cell cell--5"></label>
+      <input type="radio" id="l4-b6" data-layer="4" class="p-2 c-2 r-3" />
+      <label for="l4-b6" class="cell cell--6"></label>
+      <input type="radio" id="l4-b7" data-layer="4" class="p-2 c-3 r-1 d-2" />
+      <label for="l4-b7" class="cell cell--7"></label>
+      <input type="radio" id="l4-b8" data-layer="4" class="p-2 c-3 r-2" />
+      <label for="l4-b8" class="cell cell--8"></label>
+      <input type="radio" id="l4-b9" data-layer="4" class="p-2 c-3 r-3 d-1" />
+      <label for="l4-b9" class="cell cell--9"></label>
+
+      <!-- Layer 5 -->
+      <input type="radio" id="l5-b1" data-layer="5" class="p-1 c-1 r-1 d-1" />
+      <label for="l5-b1" class="cell cell--1"></label>
+      <input type="radio" id="l5-b2" data-layer="5" class="p-1 c-1 r-2" />
+      <label for="l5-b2" class="cell cell--2"></label>
+      <input type="radio" id="l5-b3" data-layer="5" class="p-1 c-1 r-3 d-2" />
+      <label for="l5-b3" class="cell cell--3"></label>
+      <input type="radio" id="l5-b4" data-layer="5" class="p-1 c-2 r-1" />
+      <label for="l5-b4" class="cell cell--4"></label>
+      <input type="radio" id="l5-b5" data-layer="5" class="p-1 c-2 r-2 d-1 d-2" />
+      <label for="l5-b5" class="cell cell--5"></label>
+      <input type="radio" id="l5-b6" data-layer="5" class="p-1 c-2 r-3" />
+      <label for="l5-b6" class="cell cell--6"></label>
+      <input type="radio" id="l5-b7" data-layer="5" class="p-1 c-3 r-1 d-2" />
+      <label for="l5-b7" class="cell cell--7"></label>
+      <input type="radio" id="l5-b8" data-layer="5" class="p-1 c-3 r-2" />
+      <label for="l5-b8" class="cell cell--8"></label>
+      <input type="radio" id="l5-b9" data-layer="5" class="p-1 c-3 r-3 d-1" />
+      <label for="l5-b9" class="cell cell--9"></label>
+
+      <!-- Layer 6 -->
+      <input type="radio" id="l6-b1" data-layer="6" class="p-2 c-1 r-1 d-1" />
+      <label for="l6-b1" class="cell cell--1"></label>
+      <input type="radio" id="l6-b2" data-layer="6" class="p-2 c-1 r-2" />
+      <label for="l6-b2" class="cell cell--2"></label>
+      <input type="radio" id="l6-b3" data-layer="6" class="p-2 c-1 r-3 d-2" />
+      <label for="l6-b3" class="cell cell--3"></label>
+      <input type="radio" id="l6-b4" data-layer="6" class="p-2 c-2 r-1" />
+      <label for="l6-b4" class="cell cell--4"></label>
+      <input type="radio" id="l6-b5" data-layer="6" class="p-2 c-2 r-2 d-1 d-2" />
+      <label for="l6-b5" class="cell cell--5"></label>
+      <input type="radio" id="l6-b6" data-layer="6" class="p-2 c-2 r-3" />
+      <label for="l6-b6" class="cell cell--6"></label>
+      <input type="radio" id="l6-b7" data-layer="6" class="p-2 c-3 r-1 d-2" />
+      <label for="l6-b7" class="cell cell--7"></label>
+      <input type="radio" id="l6-b8" data-layer="6" class="p-2 c-3 r-2" />
+      <label for="l6-b8" class="cell cell--8"></label>
+      <input type="radio" id="l6-b9" data-layer="6" class="p-2 c-3 r-3 d-1" />
+      <label for="l6-b9" class="cell cell--9"></label>
+
+      <!-- Layer 7 -->
+      <input type="radio" id="l7-b1" data-layer="7" class="p-1 c-1 r-1 d-1" />
+      <label for="l7-b1" class="cell cell--1"></label>
+      <input type="radio" id="l7-b2" data-layer="7" class="p-1 c-1 r-2" />
+      <label for="l7-b2" class="cell cell--2"></label>
+      <input type="radio" id="l7-b3" data-layer="7" class="p-1 c-1 r-3 d-2" />
+      <label for="l7-b3" class="cell cell--3"></label>
+      <input type="radio" id="l7-b4" data-layer="7" class="p-1 c-2 r-1" />
+      <label for="l7-b4" class="cell cell--4"></label>
+      <input type="radio" id="l7-b5" data-layer="7" class="p-1 c-2 r-2 d-1 d-2" />
+      <label for="l7-b5" class="cell cell--5"></label>
+      <input type="radio" id="l7-b6" data-layer="7" class="p-1 c-2 r-3" />
+      <label for="l7-b6" class="cell cell--6"></label>
+      <input type="radio" id="l7-b7" data-layer="7" class="p-1 c-3 r-1 d-2" />
+      <label for="l7-b7" class="cell cell--7"></label>
+      <input type="radio" id="l7-b8" data-layer="7" class="p-1 c-3 r-2" />
+      <label for="l7-b8" class="cell cell--8"></label>
+      <input type="radio" id="l7-b9" data-layer="7" class="p-1 c-3 r-3 d-1" />
+      <label for="l7-b9" class="cell cell--9"></label>
+
+      <!-- Layer 8 -->
+      <input type="radio" id="l8-b1" data-layer="8" class="p-2 c-1 r-1 d-1" />
+      <label for="l8-b1" class="cell cell--1"></label>
+      <input type="radio" id="l8-b2" data-layer="8" class="p-2 c-1 r-2" />
+      <label for="l8-b2" class="cell cell--2"></label>
+      <input type="radio" id="l8-b3" data-layer="8" class="p-2 c-1 r-3 d-2" />
+      <label for="l8-b3" class="cell cell--3"></label>
+      <input type="radio" id="l8-b4" data-layer="8" class="p-2 c-2 r-1" />
+      <label for="l8-b4" class="cell cell--4"></label>
+      <input type="radio" id="l8-b5" data-layer="8" class="p-2 c-2 r-2 d-1 d-2" />
+      <label for="l8-b5" class="cell cell--5"></label>
+      <input type="radio" id="l8-b6" data-layer="8" class="p-2 c-2 r-3" />
+      <label for="l8-b6" class="cell cell--6"></label>
+      <input type="radio" id="l8-b7" data-layer="8" class="p-2 c-3 r-1 d-2" />
+      <label for="l8-b7" class="cell cell--7"></label>
+      <input type="radio" id="l8-b8" data-layer="8" class="p-2 c-3 r-2" />
+      <label for="l8-b8" class="cell cell--8"></label>
+      <input type="radio" id="l8-b9" data-layer="8" class="p-2 c-3 r-3 d-1" />
+      <label for="l8-b9" class="cell cell--9"></label>
+
+      <!-- Layer 9 -->
+      <input type="radio" id="l9-b1" data-layer="9" class="p-1 c-1 r-1 d-1" />
+      <label for="l9-b1" class="cell cell--1"></label>
+      <input type="radio" id="l9-b2" data-layer="9" class="p-1 c-1 r-2" />
+      <label for="l9-b2" class="cell cell--2"></label>
+      <input type="radio" id="l9-b3" data-layer="9" class="p-1 c-1 r-3 d-2" />
+      <label for="l9-b3" class="cell cell--3"></label>
+      <input type="radio" id="l9-b4" data-layer="9" class="p-1 c-2 r-1" />
+      <label for="l9-b4" class="cell cell--4"></label>
+      <input type="radio" id="l9-b5" data-layer="9" class="p-1 c-2 r-2 d-1 d-2" />
+      <label for="l9-b5" class="cell cell--5"></label>
+      <input type="radio" id="l9-b6" data-layer="9" class="p-1 c-2 r-3" />
+      <label for="l9-b6" class="cell cell--6"></label>
+      <input type="radio" id="l9-b7" data-layer="9" class="p-1 c-3 r-1 d-2" />
+      <label for="l9-b7" class="cell cell--7"></label>
+      <input type="radio" id="l9-b8" data-layer="9" class="p-1 c-3 r-2" />
+      <label for="l9-b8" class="cell cell--8"></label>
+      <input type="radio" id="l9-b9" data-layer="9" class="p-1 c-3 r-3 d-1" />
+      <label for="l9-b9" class="cell cell--9"></label>
+
+      <!-- End -->
+       <div class="end" role="presentation">
+        <div class="end__dialog">
+          <div class="end__message"></div>
+          <a href class="end__restart">Play again</a>
+        </div>
+       </div>
+
+    </div>
+
+</body>
+</html>
